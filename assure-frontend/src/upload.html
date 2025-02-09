@@ -38,22 +38,25 @@
     <!-- Upload Page Content with Blurred Mascot Background -->
     <section class="upload-section">
         <div class="upload-box">
-            <h2 id="upload-title">Upload Your Insurance Document</h2>
-            <p>Upload your insurance policy document or paste your policy details below.</p>
-
-            <!-- File Upload (Centered) -->
+            <h2 id="upload-title">Upload Your Insurance Documents</h2>
+            <p>Upload multiple insurance policy documents or paste your policy details below.</p>
+    
+            <!-- File Upload (Multiple Files Allowed) -->
             <div class="upload-container">
-                <label for="insurance-file" class="upload-btn">Choose File</label>
-                <input type="file" id="insurance-file" accept=".pdf" hidden>
+                <label for="insurance-file" class="upload-btn">Choose Files</label>
+                <input type="file" id="insurance-file" accept=".pdf" multiple hidden>
             </div>
-
+    
+            <!-- Uploaded Files List -->
+            <div id="uploaded-files" class="uploaded-files">
+                <!-- Files will be listed here -->
+            </div>
+    
             <!-- Paste Text Area -->
             <div class="paste-container">
                 <textarea id="insurance-text" placeholder="Paste your insurance details here..."></textarea>
                 <button class="submit-btn" onclick="submitText()">Submit</button>
             </div>
-
-        
         </div>
     </section>
 

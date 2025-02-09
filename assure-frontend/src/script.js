@@ -26,12 +26,36 @@ function redirectToUpload(type) {
     window.location.href = `upload.html?type=${type}`;
 }
 
-// Handle file selection
 document.getElementById("insurance-file").addEventListener("change", function(event) {
-    if (event.target.files.length > 0) {
-        alert("File selected: " + event.target.files[0].name);
+    let files = event.target.files;
+    let uploadedFilesContainer = document.getElementById("uploaded-files");
+
+    if (files.length > 0) {
+        uploadedFilesContainer.style.display = "block"; // Show the file list
+
+        // Clear only if the user reselects files, not when appending
+        uploadedFilesContainer.innerHTML = "";
+
+        for (let i = 0; i < files.length; i++) {
+            let file = files[i];
+
+            // Create a new file entry
+            let fileEntry = document.createElement("div");
+            fileEntry.classList.add("uploaded-file-item");
+
+            fileEntry.innerHTML = `
+                <img src="./assets/pdf.png" alt="PDF Icon">
+                <span>${file.name}</span>
+            `;
+
+            uploadedFilesContainer.appendChild(fileEntry);
+        }
+    } else {
+        uploadedFilesContainer.style.display = "none"; // Hide if no file selected
     }
 });
+
+
 
 // Handle text submission
 function submitText() {
@@ -42,6 +66,7 @@ function submitText() {
         alert("Insurance details submitted successfully!");
     }
 }
+
 
 
 

@@ -10,9 +10,8 @@ body {
   padding: 0;
   color: white;
   text-align: center;
-  overflow-x: hidden; /* Prevent horizontal overflow but allow vertical scrolling */
-  overflow-y: auto; /* Ensure vertical scrolling */
-  height: auto; /* Allow height to adjust dynamically */
+  overflow-y: auto !important; /* Force scrolling */
+  min-height: 100vh; /* Ensure the page can grow */
 }
 
 /* Navigation Bar */
@@ -519,6 +518,46 @@ body {
   transform: scale(1.05);
 }
 
+/* ✅ Uploaded File Display */
+.uploaded-files {
+  margin-top: 15px;
+  padding: 10px;
+  background: #f4f4f4;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  display: none;
+  width: fit-content;
+  padding: 8px 15px;
+}
+
+.uploaded-file-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ✅ PDF Icon */
+.uploaded-file-item img {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+/* ✅ File Name */
+.uploaded-file-item span {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* ====== PASTE TEXT AREA ====== */
 .paste-container {
   margin-top: 30px;
@@ -551,4 +590,3 @@ textarea {
   background: #53A8FC;
   transform: scale(1.05);
 }
-
